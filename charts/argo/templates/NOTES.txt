@@ -1,1 +1,1 @@
-Thank you for choosing to install Argo components using this Argo umbrella chart version {{ .Release.Version }}
+Thank you for choosing to install Argo components using this Argo umbrella chart version {{ .Chart.Version }}
