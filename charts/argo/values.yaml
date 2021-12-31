@@ -13,3 +13,6 @@ argo-cd:
       enabled: true
       hosts:
         - argocd.localhost
+
+minio:
+  enabled: true
