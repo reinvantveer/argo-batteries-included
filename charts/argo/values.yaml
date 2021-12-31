@@ -17,3 +17,6 @@ argo-cd:
 
 minio:
   enabled: true
+
+  persistence:
+    size: 5Gi
