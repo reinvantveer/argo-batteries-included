@@ -3,6 +3,7 @@
 # Declare variables to be passed into your templates.
 
 argo-cd:
+  enabled: true
   dex:
     enabled: false
 
