@@ -1,1 +1,9 @@
 Thank you for choosing to install Argo components using this Argo umbrella chart version {{ .Chart.Version }}
+
+{{- $minioConsoleHost := first .Values.minio.consoleIngress.hosts }}
+
+{{ with first .Values.minio.users }}
+The user and password for minio console login at http://{{ $minioConsoleHost }}:
+    user: {{  .accessKey }}
+    pass: {{  .secretKey }}
+{{ end }}

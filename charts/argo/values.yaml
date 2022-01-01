@@ -36,9 +36,19 @@ minio:
     hosts:
       - minio.localhost
 
-  buckets:
-   - name: argo-logs
-     policy: none
-     # Purge if bucket exists already
-     purge: false
-     versioning: false
+users:
+  ## Username, password and policy to be assigned to the user
+  ## Default policies are [readonly|readwrite|writeonly|consoleAdmin|diagnostics]
+  ## Add new policies as explained here https://docs.min.io/docs/minio-multi-user-quickstart-guide.html
+  ## NOTE: this will fail if LDAP is enabled in your MinIO deployment
+  ## make sure to disable this if you are using LDAP.
+  - accessKey: console
+    secretKey: console123
+    policy: consoleAdmin
+
+#  buckets:
+#   - name: argo-logs
+#     policy: none
+#     # Purge if bucket exists already
+#     purge: false
+#     versioning: false
