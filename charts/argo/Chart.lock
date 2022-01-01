@@ -1,6 +1,9 @@
 dependencies:
+- name: minio
+  repository: https://charts.min.io/
+  version: 3.4.4
 - name: argo-cd
   repository: https://argoproj.github.io/argo-helm
   version: 3.27.1
-digest: sha256:20811a181405cfa2031a728ab2eb3e8dc0a2d7e19b65d5da00adf4d5b03ffc9b
-generated: "2021-12-05T16:13:09.284877844+01:00"
+digest: sha256:3cfd3f321b96bde742f7a7dbc511cecbdbfa3f2ffa59df78c3a4599a3c0299ad
+generated: "2022-01-01T12:04:58.812585621+01:00"
