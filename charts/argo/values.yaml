@@ -30,6 +30,12 @@ minio:
     requests:
       memory: 128Mi
 
+  consoleIngress:
+    enabled: true
+    path: /
+    hosts:
+      - minio.localhost
+
   buckets:
    - name: argo-logs
      policy: none
