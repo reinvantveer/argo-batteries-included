@@ -5,8 +5,11 @@ dependencies:
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 10.14.2
+- name: argo-workflows
+  repository: https://argoproj.github.io/argo-helm
+  version: 0.9.4
 - name: argo-cd
   repository: https://argoproj.github.io/argo-helm
   version: 3.27.1
-digest: sha256:296fdb115b7e96c8852e2cdfbc4e2b464c707f5472c8a5f0498c0b94a397ad8c
-generated: "2022-01-02T15:14:50.544501707+01:00"
+digest: sha256:cdd9fa846521700f6dc96c48e26bd69f515c2d9b3523b1b3174ff59ba9c5ce7a
+generated: "2022-01-02T18:41:55.91529464+01:00"

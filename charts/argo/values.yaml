@@ -60,3 +60,6 @@ postgresql:
 
   postgresqlUsername: postgres
   postgresqlPassword: postgres
+
+argo-workflows:
+  enabled: true
