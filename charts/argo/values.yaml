@@ -46,11 +46,13 @@ minio:
       secretKey: console123
       policy: consoleAdmin
 
+  # Bucket for Argo logging and data artifacts
   buckets:
    - name: argo
      policy: none
      purge: false
 
+# Back-end for workflow archive
 postgresql:
   enabled: true
 
