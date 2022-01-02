@@ -52,3 +52,13 @@ users:
 #     # Purge if bucket exists already
 #     purge: false
 #     versioning: false
+
+postgresql:
+  enabled: true
+
+  resources:
+    requests:
+      memory: 64Mi
+
+  postgresqlUsername: postgres
+  postgresqlPassword: postgres

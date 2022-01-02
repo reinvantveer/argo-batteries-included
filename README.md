@@ -9,6 +9,7 @@ pointers to how to log into dev consoles is provided by the installation notes i
 This helm chart currently contains the following:
 - [X] A local dev-configuration for ArgoCD
 - [X] A local dev-configuration for Minio. This takes care of local bucket access so you don't need AWS or GCS storage.
+- [X] PostgresSQL workflow archive database. NOTE that this database is NOT backed up on any bucket- or other storage!
 
 ### TODO
 

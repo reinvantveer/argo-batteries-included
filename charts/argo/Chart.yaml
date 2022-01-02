@@ -29,6 +29,11 @@ dependencies:
     version: 3.4.4
     condition: minio.enabled
 
+  - name: postgresql
+    repository: https://charts.bitnami.com/bitnami
+    version: 10.14.2
+    condition: postgresql.enabled
+
   - name: argo-cd
     version: 3.27.1
     repository: https://argoproj.github.io/argo-helm

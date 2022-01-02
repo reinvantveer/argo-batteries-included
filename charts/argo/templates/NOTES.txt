@@ -7,3 +7,7 @@ The user and password for minio console login at http://{{ $minioConsoleHost }}:
     user: {{  .accessKey }}
     pass: {{  .secretKey }}
 {{ end }}
+
+The user and password for postgresql:
+    user: {{ .Values.postgresql.postgresqlUsername }}
+    pass: {{ .Values.postgresql.postgresqlPassword }}
