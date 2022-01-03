@@ -3,11 +3,13 @@ Thank you for choosing to install Argo components using this Argo umbrella chart
 {{- $minioConsoleHost := first .Values.minio.consoleIngress.hosts }}
 
 {{ with first .Values.minio.users }}
-The user and password for minio console login at http://{{ $minioConsoleHost }}:
+Minio was deployed to store workflow artifacts.
+The user and password for the Minio console login at http://{{ $minioConsoleHost }}:
     user: {{  .accessKey }}
     pass: {{  .secretKey }}
-{{ end }}
+{{- end }}
 
-The user and password for postgresql:
+A PostgreSQL instance was deployed to store Argo workflow archives.
+The user and password for the PostgreSQL instance:
     user: {{ .Values.postgresql.postgresqlUsername }}
     pass: {{ .Values.postgresql.postgresqlPassword }}
