@@ -60,6 +60,10 @@ postgresql:
     requests:
       memory: 64Mi
 
+  # On k3s, PostgreSQL somehow needs special permissions on the volume in order to set the user/pass config properly
+  volumePermissions:
+    enabled: true
+
   postgresqlUsername: postgres
   postgresqlPassword: postgres
 
@@ -103,15 +107,15 @@ argo-workflows:
         userNameSecret:
           name: argo-postgresql
           # NOTE that since we went with "postgres" as user, we only get a password secret, which is the same as the user
-          key: password
+          key: postgresql-password
         passwordSecret:
           name: argo-postgresql
-          key: password
+          key: postgresql-password
 
   # Set up logging artifact repo in minio s3 bucket
 
   # -- Influences the creation of the ConfigMap for the workflow-controller itself.
-  useDefaultArtifactRepo: true
+  useDefaultArtifactRepo: false
   # -- Use static credentials for S3 (eg. when not using AWS IRSA)
   useStaticCredentials: true
   artifactRepository:
