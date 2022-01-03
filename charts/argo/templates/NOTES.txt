@@ -13,3 +13,8 @@ A PostgreSQL instance was deployed to store Argo workflow archives.
 The user and password for the PostgreSQL instance:
     user: {{ .Values.postgresql.postgresqlUsername }}
     pass: {{ .Values.postgresql.postgresqlPassword }}
+
+{{- with $argoHost := .Values.global.argoServerHost }}
+An Argo server instance was deployed. It allows you to manage workflows and events.
+The Argo server can be reached at http://{{ $argoHost }}. There is no login required.
+{{- end }}
