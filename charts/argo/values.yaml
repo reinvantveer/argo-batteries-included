@@ -65,3 +65,69 @@ postgresql:
 
 argo-workflows:
   enabled: true
+
+  server:
+    ingress:
+      enabled: true
+      hosts:
+        - *ref_argoServerHost
+      paths:
+        - /
+
+    extraArgs:
+      # Disable dev-mode authentication
+      - --auth-mode=server
+
+    secure: false
+
+  controller:
+    workflowNamespaces:
+      - data
+      - operators
+
+    # Set up database connection details for workflow archive
+    persistence:
+      connectionPool:
+        maxIdleConns: 10
+        maxOpenConns: 50
+      # save the entire workflow into etcd and DB
+      nodeStatusOffLoad: false
+      # enable archiving of old workflows
+      archive: true
+      postgresql:
+        host: argo-postgresql
+        port: 5432
+        database: postgres
+        tableName: argo_workflows
+        # the database secrets must be in the same namespace of the controller
+        userNameSecret:
+          name: argo-postgresql
+          # NOTE that since we went with "postgres" as user, we only get a password secret, which is the same as the user
+          key: password
+        passwordSecret:
+          name: argo-postgresql
+          key: password
+
+  # Set up logging artifact repo in minio s3 bucket
+
+  # -- Influences the creation of the ConfigMap for the workflow-controller itself.
+  useDefaultArtifactRepo: true
+  # -- Use static credentials for S3 (eg. when not using AWS IRSA)
+  useStaticCredentials: true
+  artifactRepository:
+    # -- Archive the main container logs as an artifact
+    archiveLogs: true
+    # -- Store artifact in a S3-compliant object store
+    # @default -- See [values.yaml]
+    s3:
+      # Note the `key` attribute is not the actual secret, it's the PATH to
+      # the contents in the associated secret, as defined by the `name` attribute.
+      accessKeySecret:
+        name: argo-minio
+        key: rootUser
+      secretKeySecret:
+        name: argo-minio
+        key: rootPassword
+      insecure: true
+      bucket: argo
+      endpoint: http://argo-minio:9000
