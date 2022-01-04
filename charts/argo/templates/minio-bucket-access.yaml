@@ -1,0 +1,15 @@
+{{- range $namespace := index .Values "argo-workflows" "controller" "workflowNamespaces" }}
+kind: Secret
+apiVersion: v1
+metadata:
+  name: minio-bucket-access
+  namespace: {{ $namespace }}
+  labels:
+    app: minio
+data:
+  {{- with $user := last $.Values.minio.users }}
+  user: {{ $user.accessKey | b64enc }}
+  pass: {{ $user.secretKey | b64enc }}
+  {{- end }}
+type: Opaque
+{{- end }}

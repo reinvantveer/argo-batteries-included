@@ -48,8 +48,9 @@ minio:
 
     # This user account is for reading from and writing to the Argo artifacts bucket from each namespace that Argo is
     # allowed to deploy workflows in.
+    # NOTE that this user is expected to be the LAST one in the list of users!
     - accessKey: argo
-      secretKey: argo
+      secretKey: argo-pass  # Should be at least 8 chars
       policy: readwrite
 
   # Bucket for Argo logging and data artifacts
@@ -136,11 +137,11 @@ argo-workflows:
       # Note the `key` attribute is not the actual secret, it's the PATH to
       # the contents in the associated secret, as defined by the `name` attribute.
       accessKeySecret:
-        name: argo-minio
-        key: rootUser
+        name: minio-bucket-access
+        key: user
       secretKeySecret:
-        name: argo-minio
-        key: rootPassword
+        name: minio-bucket-access
+        key: pass
       insecure: true
       bucket: argo
       endpoint: argo-minio:9000
