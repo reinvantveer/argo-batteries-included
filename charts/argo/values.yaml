@@ -89,6 +89,9 @@ argo-workflows:
       - data
       - operators
 
+    workflowDefaults:
+      archiveLogs: true
+
     # Set up database connection details for workflow archive
     persistence:
       connectionPool:
