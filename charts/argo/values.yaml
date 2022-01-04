@@ -118,7 +118,7 @@ argo-workflows:
   # Set up logging artifact repo in minio s3 bucket
 
   # -- Influences the creation of the ConfigMap for the workflow-controller itself.
-  useDefaultArtifactRepo: false
+  useDefaultArtifactRepo: true
   # -- Use static credentials for S3 (eg. when not using AWS IRSA)
   useStaticCredentials: true
   artifactRepository:
