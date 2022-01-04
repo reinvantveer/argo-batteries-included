@@ -46,6 +46,12 @@ minio:
       secretKey: console123
       policy: consoleAdmin
 
+    # This user account is for reading from and writing to the Argo artifacts bucket from each namespace that Argo is
+    # allowed to deploy workflows in.
+    - accessKey: argo
+      secretKey: argo
+      policy: readwrite
+
   # Bucket for Argo logging and data artifacts
   buckets:
    - name: argo
