@@ -93,6 +93,7 @@ argo-workflows:
 
   controller:
     workflowNamespaces:
+      - operators
       - data
       - operators
 
