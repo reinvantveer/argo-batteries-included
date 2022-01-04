@@ -95,7 +95,6 @@ argo-workflows:
     workflowNamespaces:
       - operators
       - data
-      - operators
 
     workflowDefaults:
       archiveLogs: true
