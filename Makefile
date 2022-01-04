@@ -1,10 +1,14 @@
 SHELL = /bin/bash
 
+.DEFAULT: install
+
 OPERATOR_NAMESPACE ?= operators
 DATA_NAMESPACE ?= data
 KUBE_CONFIG ?= /etc/rancher/k3s/k3s.yaml
 
 HELM_OPERATE = KUBECONFIG=${KUBE_CONFIG} helm -n ${OPERATOR_NAMESPACE}
+
+all: install
 
 namespaces:
 	- kubectl create namespace ${OPERATOR_NAMESPACE}
@@ -23,3 +27,7 @@ uninstall:
 
 update:
 	$(HELM_OPERATE) upgrade argo charts/argo
+
+clean:
+	${MAKE} uninstall
+	rm argo/charts/*.tgz
