@@ -74,6 +74,7 @@ postgresql:
   postgresqlUsername: postgres
   postgresqlPassword: postgres
 
+# Argo Server and Argo Workflows configuration
 argo-workflows:
   enabled: true
 
