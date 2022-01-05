@@ -67,8 +67,9 @@ This helm chart currently offers the following:
   takes care of local bucket access, so you don't need AWS or GCS storage.
 - [X] [PostgresSQL](https://www.postgresql.org/) database, that serves as workflow archive. NOTE that this database is
   NOT backed up on any bucket- or other storage!
-- [X] Argo Workflows deployment in `operators` by default, but that is able to deploy workflows in the `data` namespace.
-  It writes logs in the Minio `argo` bucket, and writes completed workflow archives to the PostgreSQL database. 
+- [X] [Argo Workflows](https://argoproj.github.io/workflows/) deployment in the `operators` namespace by default. It is
+  able to deploy workflows in the `data` namespace. It writes logs in the Minio `argo` bucket, and writes completed
+  workflow archives to the PostgreSQL database.
 
 ### TODO
 
