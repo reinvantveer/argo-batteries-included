@@ -145,3 +145,10 @@ argo-workflows:
       insecure: true
       bucket: argo
       endpoint: argo-minio:9000
+      # See also: https://github.com/argoproj/argo-workflows/blob/master/docs/workflow-controller-configmap.yaml#L101
+      keyFormat: "logs\
+              /{{workflow.creationTimestamp.Y}}\
+              /{{workflow.creationTimestamp.m}}\
+              /{{workflow.creationTimestamp.d}}\
+              /{{workflow.name}}\
+              /{{pod.name}}"
