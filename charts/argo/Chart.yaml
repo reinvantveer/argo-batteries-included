@@ -43,3 +43,8 @@ dependencies:
     repository: https://argoproj.github.io/argo-helm
     version: 3.29.5
     condition: argo-cd.enabled
+
+  - name: argo-events
+    version: 1.8.0
+    repository: https://argoproj.github.io/argo-helm
+    condition: argo-events.enabled

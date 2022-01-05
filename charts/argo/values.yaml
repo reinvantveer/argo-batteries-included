@@ -163,3 +163,6 @@ argo-workflows:
               /{{workflow.creationTimestamp.d}}\
               /{{workflow.name}}\
               /{{pod.name}}"
+
+argo-events:
+  enabled: true
