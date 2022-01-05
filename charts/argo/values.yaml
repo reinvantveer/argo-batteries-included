@@ -98,6 +98,9 @@ argo-workflows:
     secure: false
 
   controller:
+    # See also https://github.com/argoproj/argo-helm/tree/master/charts/argo-workflows#workflow-controller-1
+    containerRuntimeExecutor: emissary
+
     workflowNamespaces:
       - operators
       - data
