@@ -108,6 +108,7 @@ argo-workflows:
 
     workflowDefaults:
       archiveLogs: true
+      serviceAccountName: argo-workflow
 
     # Set up database connection details for workflow archive
     persistence:
