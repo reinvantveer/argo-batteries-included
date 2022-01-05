@@ -30,7 +30,7 @@ password settings and disable every Ingress that should not expose infrastructur
 
 The Argo ecosystem is an incredibly useful set of tools for managing workflows, events and releases. However:
 
-1. The default settings for the Argo Helm charts leave a bit of configuration to set in order to get a working
+1. The default settings for the Argo Helm charts leave quite a bit of configuration to set in order to get a working
    development environment. This Helm chart is intended to help you set up full-featured Argo components, with batteries
    included.
 2. Also: this chart is targeted specifically at local "bare metal" or minimal development or testing installation
@@ -39,8 +39,8 @@ The Argo ecosystem is an incredibly useful set of tools for managing workflows, 
 
 ## How?
 
-For now, I've decided to run with a simple Makefile approach, which keeps things extremely simple. After
-installing 
+For now, I've decided to run with a simple Makefile approach, which keeps things extremely simple. After installing
+
 - [k3s](https://rancher.com/docs/k3s/latest/en/installation/) (tested)
   or [minikube](https://minikube.sigs.k8s.io/docs/start/) (untested),
 - and [Helm](https://helm.sh/docs/intro/install/)
