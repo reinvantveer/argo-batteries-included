@@ -10,7 +10,7 @@ cluster. All applications work out of the box. Hints on application logins is pr
 
 NOTE: Do not use this chart as is for ANY kind of production environment!
 
-For details on what applications are deployed with this chart, see [What](#what).
+For details on what applications are deployed with this chart, see the [What](#what) section below.
 
 ## Why?
 
@@ -61,14 +61,14 @@ This helm chart currently offers the following:
 
 - [X] A convenience [`Makefile`](Makefile) that provides a single `make install` command to deploy the entire release.
   It also takes care of creating the `operators` and `data` namespaces.
-- [X] A local dev-configuration for [Argo-CD](https://argoproj.github.io/cd/), deployed in the `operators` namespace by
+- [X] A local dev-configuration for [Argo CD](https://argoproj.github.io/cd/), deployed in the `operators` namespace by
   default.
 - [X] A local dev-configuration for [MinIO](https://min.io/), deployed in the `operators` namespace by default. This
   takes care of local bucket access, so you don't need AWS or GCS storage.
 - [X] [PostgresSQL](https://www.postgresql.org/) database, that serves as workflow archive. NOTE that this database is
   NOT backed up on any bucket- or other storage!
 - [X] [Argo Workflows](https://argoproj.github.io/workflows/) deployment in the `operators` namespace by default. It is
-  able to deploy workflows in the `data` namespace. It writes logs in the Minio `argo` bucket, and writes completed
+  able to deploy workflows in the `data` namespace. It writes logs in the MinIO `argo` bucket, and writes completed
   workflow archives to the PostgreSQL database.
 
 ### TODO
