@@ -8,9 +8,23 @@ The purpose of this repo is to provide an "umbrella helm chart" for a local dev/
 batteries included. This allows you to freely experiment and muck around without requiring access to a full cloud
 cluster. All applications work out of the box. Hints on application logins is provided by the installation notes itself.
 
-NOTE: Do not use this chart as is for ANY kind of production environment!
-
 For details on what applications are deployed with this chart, see the [What](#what) section below.
+
+## NOTE ON SECURITY
+
+This chart is for education, experimentation and exploration only. **Do NOT under any circumstance use this chart for
+ANY kind of production environment!** Although every single component used can be configured in a secure manner, it is
+insecure in this chart due to the configuration provided here: 
+- dead giveaway default passwords, 
+- exposed endpoints, 
+- missing database backups, 
+- insecure authentication and/or 
+- disabled authentication. 
+
+Please check every security setting, if possible with your cloud security engineer in order to reshape the
+settings [provided here](charts/argo/values.yaml)
+into a security-hardened setup. Make sure you enable TLS encryption where applicable and available, disable the default
+password settings and disable every Ingress that should not expose infrastructure to the outside world.
 
 ## Why?
 
