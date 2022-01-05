@@ -31,3 +31,6 @@ update:
 clean:
 	${MAKE} uninstall
 	rm argo/charts/*.tgz
+
+status:
+	KUBECONFIG=${KUBE_CONFIG} kubectl get all -A
