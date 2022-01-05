@@ -153,7 +153,8 @@ argo-workflows:
         key: pass
       insecure: true
       bucket: argo
-      endpoint: argo-minio:9000
+      # See https://stackoverflow.com/questions/47027194/how-to-access-a-service-in-a-kubernetes-cluster-using-the-service-name#answer-47029021
+      endpoint: argo-minio.operators.svc.cluster.local:9000
       # See also: https://github.com/argoproj/argo-workflows/blob/master/docs/workflow-controller-configmap.yaml#L101
       keyFormat: "logs\
               /{{workflow.creationTimestamp.Y}}\
