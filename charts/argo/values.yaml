@@ -166,3 +166,9 @@ argo-workflows:
 
 argo-events:
   enabled: true
+
+  additionalSaNamespaces:
+    - operators
+    - data
+
+  singleNamespace: false
