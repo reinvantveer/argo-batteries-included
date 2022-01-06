@@ -71,7 +71,7 @@ make update
 
 ## What?
 
-This helm chart currently offers the following:
+This helm chart currently defaults to the following:
 
 - [X] A convenience [`Makefile`](Makefile) that provides a single `make install` command to deploy the entire release.
   It also takes care of creating the `operators` and `data` namespaces.
@@ -84,9 +84,10 @@ This helm chart currently offers the following:
 - [X] [Argo Workflows](https://argoproj.github.io/workflows/) deployment in the `operators` namespace by default. It is
   able to deploy workflows in the `data` namespace. It writes logs in the MinIO `argo` bucket, and writes completed
   workflow archives to the PostgreSQL database.
+- [X] [Argo Events](https://argoproj.github.io/events/) deployment in the `operators` namespace by default. It is 
+  able to manage events in the `data` namespace.
 
 ### TODO
 
-- [ ] Argo Events
 - [ ] Argo event bus
 - [ ] Easy reconfigurable support for installing into namespaces other than `operators` and `data`.
