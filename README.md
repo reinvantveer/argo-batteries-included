@@ -63,6 +63,10 @@ you want to install to other namespaces, you need to either edit or override the
 make uninstall
 ```
 
+This will not delete the `operators` and `data` namespaces, in case you started deploying other stuff there as well.
+Also: the data volume for PostgreSQL is kept, so the Workflow archive is still present. It does, however, delete the
+MinIO bucket data.
+
 ### Update
 Once you have deployed and want to tweak the deployment settings, you can update the release using 
 
