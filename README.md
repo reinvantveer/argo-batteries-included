@@ -94,3 +94,5 @@ This helm chart currently defaults to the following:
 
 - [ ] Argo event bus
 - [ ] Easy reconfigurable support for installing into namespaces other than `operators` and `data`.
+- [ ] Easily configurable way to keep MinIO persistent volumes after uninstall. Something to do with the deletion policy
+  of the PV(C).
