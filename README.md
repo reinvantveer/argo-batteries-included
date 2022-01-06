@@ -53,8 +53,9 @@ you can start hacking!
 make install
 ```
 
-and the entire umbrella chart is deployed. If you want to install to other namespaces, you need to either edit or
-override the settings in both the [Makefile](Makefile) and [charts/argo/values.yaml](charts/argo/values.yaml).
+and the entire umbrella chart is deployed. This also takes care of creating the `operators` and `data` namespaces. If
+you want to install to other namespaces, you need to either edit or override the settings in both the 
+[Makefile](Makefile) and [charts/argo/values.yaml](charts/argo/values.yaml).
 
 ### Uninstall
 
@@ -73,8 +74,6 @@ make update
 
 This helm chart currently defaults to the following:
 
-- [X] A convenience [`Makefile`](Makefile) that provides a single `make install` command to deploy the entire release.
-  It also takes care of creating the `operators` and `data` namespaces.
 - [X] A local dev-configuration for [Argo CD](https://argoproj.github.io/cd/), deployed in the `operators` namespace by
   default.
 - [X] A local dev-configuration for [MinIO](https://min.io/), deployed in the `operators` namespace by default. This
