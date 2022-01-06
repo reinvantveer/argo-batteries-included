@@ -34,3 +34,6 @@ clean:
 
 status:
 	KUBECONFIG=${KUBE_CONFIG} kubectl get all -A
+
+template:
+	$(HELM_OPERATE) template argo charts/argo
