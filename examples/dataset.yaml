@@ -1,0 +1,7 @@
+apiVersion: api.antfield.nl/v1alpha1
+kind: GeoDataset
+metadata:
+  name: my-example-dataset
+spec:
+  source: some source
+  target: some target

@@ -47,3 +47,6 @@ example-uninstall:
 
 example-update:
 	$(HELM_OPERATE) upgrade event-operator charts/argo-event-based-operator
+
+example-dataset:
+	KUBECONFIG=${KUBE_CONFIG} kubectl -n operators apply -f examples/dataset.yaml
