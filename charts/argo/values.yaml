@@ -1,4 +1,8 @@
 global:
+  namespaces: &ref_namespaces
+    - operators
+    - data
+
   argoServerHost: &ref_argoServerHost
     argo.localhost
 
@@ -102,9 +106,7 @@ argo-workflows:
     # See also https://github.com/argoproj/argo-helm/tree/master/charts/argo-workflows#workflow-controller-1
     containerRuntimeExecutor: emissary
 
-    workflowNamespaces:
-      - operators
-      - data
+    workflowNamespaces: *ref_namespaces
 
     workflowDefaults:
       archiveLogs: true
@@ -167,8 +169,6 @@ argo-workflows:
 argo-events:
   enabled: true
 
-  additionalSaNamespaces:
-    - operators
-    - data
+  additionalSaNamespaces: *ref_namespaces
 
   singleNamespace: false
