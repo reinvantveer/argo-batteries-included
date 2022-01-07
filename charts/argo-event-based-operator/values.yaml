@@ -1,0 +1,7 @@
+geodata:
+  serviceAccount:
+    name: geodata-sa
+
+  namespaces:
+    - operators
+    - data
