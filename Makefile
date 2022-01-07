@@ -49,4 +49,7 @@ example-update:
 	$(HELM_OPERATE) upgrade event-operator charts/argo-event-based-operator
 
 example-dataset:
-	KUBECONFIG=${KUBE_CONFIG} kubectl -n operators apply -f examples/dataset.yaml
+	KUBECONFIG=${KUBE_CONFIG} kubectl -n ${DATA_NAMESPACE} apply -f examples/dataset.yaml
+
+example-dataset-delete:
+	KUBECONFIG=${KUBE_CONFIG} kubectl -n ${DATA_NAMESPACE} delete -f examples/dataset.yaml
