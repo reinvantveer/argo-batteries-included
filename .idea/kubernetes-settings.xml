@@ -3,4 +3,14 @@
   <component name="KubernetesApiSettings">
     <option name="kubeconfigPath" value="/etc/rancher/k3s/k3s.yaml" />
   </component>
+  <component name="KubernetesSettings">
+    <specSources>
+      <SpecSource>
+        <option name="pathOrUrl" value="https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json" />
+      </SpecSource>
+      <SpecSource>
+        <option name="pathOrUrl" value="https://raw.githubusercontent.com/argoproj/argo-events/stable/api/openapi-spec/swagger.json" />
+      </SpecSource>
+    </specSources>
+  </component>
 </project>
