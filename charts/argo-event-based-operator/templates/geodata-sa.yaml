@@ -1,5 +1,8 @@
+{{- range $namespace := .Values.geodata.namespaces }}
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: {{ $.Values.geodata.serviceAccount.name }}
+  namespace: {{ $namespace }}
+{{- end }}
