@@ -1,0 +1,19 @@
+{{- range $namespace := .Values.geodata.namespaces }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ template "argo-event-based-operator.fullname" $ }}-geodata
+    {{- with $namespace }}
+  namespace: {{ . }}
+    {{- end }}
+rules:
+  - apiGroups:
+      - api.antfield.nl
+    resources:
+      - geodatasets
+    verbs:
+      - get
+      - list
+      - watch
+{{- end }}

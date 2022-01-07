@@ -1,0 +1,18 @@
+{{- range $namespace := .Values.geodata.namespaces }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ template "argo-event-based-operator.fullname" $ }}-geodata
+  namespace: {{ $namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ template "argo-event-based-operator.fullname" $ }}-geodata
+subjects:
+  - kind: ServiceAccount
+    name: {{ $.Values.geodata.serviceAccount.name }}
+    {{- with $namespace }}
+    namespace: {{ . }}
+    {{- end }}
+{{- end }}
