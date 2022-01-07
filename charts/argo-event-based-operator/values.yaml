@@ -1,6 +1,8 @@
 geodata:
   serviceAccount:
     name: geodata-sa
+    # This must reference the service account name that allows to run Argo Workflows
+    workflowServiceAccountName: argo-workflow
 
   namespaces:
     - operators
