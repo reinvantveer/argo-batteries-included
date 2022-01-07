@@ -37,3 +37,13 @@ status:
 
 template:
 	$(HELM_OPERATE) template argo charts/argo
+
+# An example project: the Argo Events-based operator
+example-install:
+	$(HELM_OPERATE) install event-operator charts/argo-event-based-operator
+
+example-uninstall:
+	$(HELM_OPERATE) uninstall event-operator
+
+example-update:
+	$(HELM_OPERATE) upgrade event-operator charts/argo-event-based-operator
