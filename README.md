@@ -89,10 +89,10 @@ This helm chart currently defaults to the following:
   workflow archives to the PostgreSQL database.
 - [X] [Argo Events](https://argoproj.github.io/events/) deployment in the `operators` namespace by default. It is 
   able to manage events in the `data` namespace.
+- [X] Argo event bus in `operators` and `data` namespaces (Argo Events doesn't do much without it).
 
 ### TODO
 
-- [ ] Argo event bus
 - [ ] Easy reconfigurable support for installing into namespaces other than `operators` and `data`.
 - [ ] Easily configurable way to keep MinIO persistent volumes after uninstall. Something to do with the deletion policy
   of the PV(C).
