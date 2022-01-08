@@ -1,4 +1,32 @@
-geodata:
+customResourceDefinition:
+  # The kind or name to give to your own custom resource
+  kind: Geodata
+  # The crd "shortname"
+  abbreviation: gds
+  # The API group name to attach your custom resource definition to
+  apiGroup: api.antfield.nl
+
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          required:
+            - spec
+          properties:
+            spec:
+              type: object
+              required:
+                - source
+                - target
+              properties:
+                source:
+                  type: string
+                target:
+                  type: string
+
   serviceAccount:
     name: geodata-sa
     # This must reference the service account name that allows to run Argo Workflows
