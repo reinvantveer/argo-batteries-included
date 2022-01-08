@@ -1,19 +1,19 @@
-{{- range $namespace := .Values.geodata.namespaces }}
+{{- range $namespace := .Values.customResourceDefinition.namespaces }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
-  name: geodata-sensor
+  name: {{ $.Values.customResourceDefinition.kind | lower }}-sensor
   namespace: {{ $namespace }}
 spec:
   template:
-    serviceAccountName: {{ $.Values.geodata.serviceAccount.name }}
+    serviceAccountName: {{ $.Values.customResourceDefinition.serviceAccount.name }}
   dependencies:
-    - name: test-dep
+    - name: source-dependency
       # References the metadata.name in the event source
-      eventSourceName: geodata-source
+      eventSourceName: {{ $.Values.customResourceDefinition.kind | lower }}-source
       # References the key directly under "resource:" in the event source
-      eventName: geodata
+      eventName: {{ $.Values.customResourceDefinition.kind | lower }}
   triggers:
     - template:
         name: argo-workflow-trigger
@@ -24,9 +24,9 @@ spec:
               apiVersion: argoproj.io/v1alpha1
               kind: Workflow
               metadata:
-                generateName: load-geodataset-
+                generateName: process-{{ $.Values.customResourceDefinition.kind | lower }}-
               spec:
-                serviceAccountName: {{ $.Values.geodata.serviceAccount.workflowServiceAccountName }}
+                serviceAccountName: {{ $.Values.customResourceDefinition.serviceAccount.workflowServiceAccountName }}
                 entrypoint: whalesay
                 arguments:
                   parameters:
@@ -44,7 +44,7 @@ spec:
                       args: [{{`"{{inputs.parameters.message}}"`}}]
           parameters:
             - src:
-                dependencyName: test-dep
+                dependencyName: source-dependency
                 dataKey: body
               dest: spec.arguments.parameters.0.value
 {{- end }}
